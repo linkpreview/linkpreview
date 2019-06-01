@@ -1,0 +1,12 @@
+@value tertiaryColor, linkColor from '../theme.css';
+
+.footer {
+  min-height: 50px;
+  padding: 10px 0;
+  background: tertiaryColor;
+  color:linkColor;
+}
+
+.footer a {
+  color:#000 !important;
+}

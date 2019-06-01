@@ -1,0 +1,79 @@
+
+
+
+.twittercard-container {
+  width:506px;
+  /*height: 339.03px;*/
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  /*background-color: #eee;*/
+}
+
+
+@media (max-width:506px) {
+
+  .twittercard-container {
+    width:100%;
+  }
+
+}
+
+.summary {
+  padding: 10px 12px;
+  margin: 0;
+}
+
+.dummy-image {
+  width: 100%;
+  height: 200px;
+  background-color: #777;
+}
+
+.image-container {
+  background: #eee;
+  /* based on 1.91:1 ratio*/
+  max-height: 261.7px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+}
+
+.summary-column {
+  display: flex;
+  flex-direction: row;
+}
+
+.summary-column .image-container {
+  width: 139px;
+}
+
+.summary-description, .summary-site {
+  margin-top: .32333em;
+}
+
+.summary-description {
+  overflow: hidden;
+  margin: 5px 0;
+  font-weight: normal;
+}
+
+.summary-title {
+  font-size: 1em;
+  max-height: 1.3em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.summary-site {
+  text-transform: lowercase;
+  color: #8899A6;
+  max-height: 1.3em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: normal;
+}

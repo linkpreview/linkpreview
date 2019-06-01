@@ -1,0 +1,48 @@
+
+.made-with-love-container {
+  font-size: 0.7em;
+  position: relative;
+  display: inline-block;
+}
+
+.column {
+  position: relative;
+  display: inline-block;
+}
+
+.colum-love {
+  width: 2em;
+}
+
+.made-with-love {
+  position: absolute;
+  top:-1em;
+  left: 0.75em;
+  color: #e11;
+  animation-name: loading;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes loading {
+  0%   {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  10%   {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+  15%  {
+    opacity: 0.8;
+    transform: scale(1.4);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}

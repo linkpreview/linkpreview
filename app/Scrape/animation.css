@@ -1,0 +1,18 @@
+@value primaryColor, secondaryColor from './theme.css';
+
+@keyframes loading {
+  0%   {background-color: primaryColor;}
+  50%  {background-color: secondaryColor;}
+  100% {background-color: primaryColor;}
+}
+
+.common {
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+.animation {
+  background: primaryColor;
+  animation-name: loading;
+  composes: common;
+}

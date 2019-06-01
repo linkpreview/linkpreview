@@ -1,0 +1,10 @@
+{
+    "verbose": false,
+    "watch": [
+      "server",
+      "app/helmconfig",
+      ".env",
+      "modules"
+    ],
+    "exec": "node server/index.js"
+}

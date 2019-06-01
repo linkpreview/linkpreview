@@ -1,0 +1,14 @@
+
+@media (min-width: 768px) {
+  .spacer {
+    height: 100px;
+    width:100%
+  }
+
+
+  .main-container {
+    min-height: 500px;
+    /*totalheigh - nav height - spacer height */
+    min-height: calc(100vh - 150px);
+  }
+}

@@ -1,0 +1,31 @@
+@value primaryColor, primaryCompliment from '../theme.css';
+.navigation {
+  position:relative;
+  width: 100%;
+  height: 50px;
+  max-height: 50px;
+  background: primaryColor;
+  color: primaryCompliment;
+  z-index: 9999;
+}
+
+.navigation div {
+  height: inherit;
+}
+
+.logo {
+  height: 40px;
+}
+
+.nav-items, .logo-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item {
+  font-size: 0.9em;
+  color: primaryCompliment;
+  margin-left: 10px;
+}

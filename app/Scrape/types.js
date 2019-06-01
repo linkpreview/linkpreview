@@ -1,0 +1,7 @@
+export const GET_SCRAPE = 'GET_SCRAPE';
+export const GET_SCRAPE_REQUEST = 'GET_SCRAPE_REQUEST';
+export const GET_SCRAPE_SUCCESS = 'GET_SCRAPE_SUCCESS';
+export const GET_SCRAPE_FAILURE = 'GET_SCRAPE_FAILURE';
+
+export const SCRAPE_MSG = 'SCRAPE_MSG';
+export const SCRAPE_ERROR = 'SCRAPE_ERROR';

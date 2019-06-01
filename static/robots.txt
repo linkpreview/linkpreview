@@ -1,0 +1,49 @@
+# www.robotstxt.org/
+
+#Google Search Engine Robot
+User-agent: Googlebot
+Allow: /
+Allow: /*
+Allow: /?url=
+
+#Yahoo! Search Engine Robot
+User-Agent: Slurp
+Allow: /
+Allow: /*
+Allow: /?url=
+
+#Yandex Search Engine Robot
+User-agent: Yandex
+Allow: /
+Allow: /*
+Allow: /?url=
+
+#Microsoft Search Engine Robot
+User-Agent: msnbot
+Allow: /
+Allow: /*
+Allow: /?url=
+
+#Baidu Search Engine Robot
+User-Agent: baiduspider
+Allow: /
+Allow: /*
+Allow: /?url=
+
+#Apple Search Engine Robot
+User-Agent: Applebot
+Allow: /
+Allow: /*
+Allow: /?url=
+
+#Twitter Search Engine Robot
+User-Agent: Twitterbot
+Allow: /
+Allow: /*
+Allow: /?url=
+
+# All other user agents
+User-agent: *
+Allow: /
+Allow: /*
+Allow: /?url=

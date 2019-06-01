@@ -1,0 +1,44 @@
+/*
+Gray Blue theme
+#3385c6 • #4279a3 • #476c8a • #49657b • #7f8e9e
+*/
+
+
+@value primaryColor #3385c6;
+@value primaryCompliment #fff;
+@value secondaryColor #4279a3;
+@value tertiaryColor #ccc;
+@value headingColor #476c8a;
+@value subHeadingColor #49657b;
+@value contentColor #000;
+@value linkColor #2e003e;
+
+/*
+Purple skyline
+#2e003e • #3d2352 • #3d1e6d • #8874a3 • #e4dcf1
+*/
+/*
+@value primaryColor #2e003e;
+@value primaryCompliment #fff;
+@value secondaryColor #3d2352;
+@value tertiaryColor #8874a3;
+@value headingColor #2e003e;
+@value subHeadingColor #3d1e6d;
+@value contentColor #000;
+@value linkColor #2e003e;
+*/
+
+/*
+Moonlight bytes
+#4a4e4d • #0e9aa7 • #3da4ab • #f6cd61 • #fe8a71
+
+
+@value primaryColor #0e9aa7;
+@value primaryCompliment #fff;
+@value secondaryColor #3da4ab;
+@value tertiaryColor #f6cd61;
+@value headingColor #4a4e4d;
+@value subHeadingColor #3da4ab;
+@value contentColor #4a4e4d;
+@value linkColor #fe8a71;
+*/

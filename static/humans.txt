@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+  Abin   -- CoFounder/Marketing -- @abinkumar19
+  Deepak -- CoFounder/CTO -- @bring2dip
+  Dipesh -- CoFounder/Design -- @dps_acharya
+
+# THANKS
+
+
+# TECHNOLOGY COLOPHON
+
+  CSS3, HTML5, JavaScript, React
+  Link Preview -- https://linkpreview.dev/

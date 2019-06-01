@@ -1,0 +1,28 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin:0;
+  padding: 0;
+}
+
+.jumbotron  {
+  font-family: "Lucida Grande";
+  width: 80%;
+  margin: 4rem auto;
+  padding: 4rem 2rem;
+  background-color: #e9ecef;
+  border-radius: .3rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.logo {
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.fade-text {
+  color: #777;
+}

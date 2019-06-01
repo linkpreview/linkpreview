@@ -1,0 +1,77 @@
+
+.opengraph-container {
+  width:500px;
+  /*min-height:339.11px;*/
+  overflow:hidden;
+  /*background-color: #eee;*/
+}
+
+
+@media (max-width:500px) {
+
+  .opengraph-container {
+    width:100%;
+  }
+
+}
+
+.summary {
+  background-color: #eee;
+  border-bottom: 1px solid #dddfe2;
+  padding: 10px 12px;
+  margin: 0;
+}
+
+.hostname {
+  text-transform: uppercase;
+}
+
+.dummy-image {
+  width: 100%;
+  height: 200px;
+  background-color: #777;
+}
+
+.image-container {
+  /* based on 1.91:1 ratio*/
+  max-height: 261.7px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+}
+
+.summary-column {
+  display: flex;
+  flex-direction: row;
+}
+
+.summary-column .image-container {
+  width: 139px;
+}
+
+
+.summary-description {
+  font-family: Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  max-height: 80px;
+  margin-top: 3px;
+  color: #606770;
+  font-size: 14px;
+  line-height: 20px;
+  word-break: break-word;
+  font-weight: normal;
+}
+
+.summary-title {
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.summary-site {
+  font-size: 12px;
+  font-weight: normal;
+}

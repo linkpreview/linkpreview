@@ -1,0 +1,9 @@
+
+.twittercard-player {
+  background-color: #eee;
+}
+
+.player-frame {
+  /*relative to twittercard-container*/
+  width: 100%;
+}

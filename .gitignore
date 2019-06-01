@@ -1,0 +1,16 @@
+.DS_Store
+node_modules
+npm-debug.log
+log
+.tmp
+.idea
+.swp
+*.env
+public/
+uploads/
+coverage/
+.env
+log/logs.log
+log/capistrano.log
+.nyc_output
+karmajs/karma-local-config.js

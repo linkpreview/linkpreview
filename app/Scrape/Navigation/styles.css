@@ -2,10 +2,10 @@
 .navigation {
   position:relative;
   width: 100%;
-  height: 50px;
-  max-height: 50px;
-  background: primaryColor;
-  color: primaryCompliment;
+  height: 100px;
+  max-height: 100px;
+  //background: primaryColor;
+  //color: primaryCompliment;
   z-index: 9999;
 }
 
@@ -14,14 +14,24 @@
 }
 
 .logo {
-  height: 40px;
+
+}
+.logo-image{
+  height: 50px;
 }
 
-.nav-items, .logo-items {
+.logo-items {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+}
+.nav-items{
+  display: flex;
+  justify-content: center;
+}
+.nav-item {
+  padding: 10px;
 }
 
 .item {

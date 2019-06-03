@@ -40,7 +40,11 @@ exports.indexView = [
 
     if(config.isProd) {
         const assetManifest = require(path.resolve('public', 'assets', 'asset-manifest.json'));
-        const chunkManifest = require(path.resolve('public', 'assets', 'chunk-manifest.json'));
+        const chunkManifestPath = path.resolve('public', 'assets', 'chunk-manifest.json');
+        let chunkManifest = {};
+        if(checkFileExists(chunkManifestPath)) {
+          chunkManifest = require(chunkManifestPath);
+        }
         App.default(req, res, next, assetManifest, chunkManifest);
     } else {
         App.default(req, res, next, {}, {});

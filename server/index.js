@@ -19,8 +19,8 @@ Promise.resolve({}).then(() => {
 
 	const httpServer = http.createServer(app);
 
-	httpServer.listen(config.port, function() {
-		console.log('Server listening on port:' + app.get('port'));
+	httpServer.listen(config.port, config.host, () => {
+		console.log('Server listening on port, host:', app.get('port'), config.host);
 	});
 
 

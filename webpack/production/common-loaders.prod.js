@@ -39,21 +39,21 @@ exports.commonLoaders = (config = {}) => {
       test: /\.css$/,
       use: [
         //{ loader: "style-loader" },
-        /*{
+        {
           loader: MiniCssExtractPlugin.loader,
           options: {
             // you can specify a publicPath here
             // by default it use publicPath in webpackOptions.output
             publicPath: config.publicPath || publicPath
           }
-        },*/
+        },
         {
           loader: 'css-loader',
           options: {
             //minimize: true,
           }
       }],
-      include: [/node_modules\/react-select/, /node_modules\/nprogress/, /node_modules\/bootstrap\/dist\/css/, /node_modules\/blueimp-gallery\/css/, /app\/css\/global.css/ ,/app\/css\/page\/global.css/, /node_modules\/react-joyride/, /react-draft-wysiwyg\/dist\/react-draft-wysiwyg.css/, /bootstrap-grid-ms\/dist\/bootstrap-grid-ms.min.css/]
+      include: [/node_modules\/normalize.css\/normalize.css/, /app\/Scrape\/global.css/]
     },
     {
       test: /\.css$/,
@@ -79,12 +79,12 @@ exports.commonLoaders = (config = {}) => {
           options: {
             minimize: true,
             config:  {
-              path: 'webpack-v4/postcss.config.js'
+              path: 'webpack/postcss.config.js'
             },
             publicPath: config.publicPath || publicPath
           }
         }],
-      exclude: [/node_modules\/react-select/, /node_modules\/nprogress/, /node_modules\/bootstrap\/dist\/css/, /node_modules\/blueimp-gallery\/css/, /app\/css\/global.css/, /app\/css\/page\/global.css/, /node_modules\/react-joyride/, /react-draft-wysiwyg\/dist\/react-draft-wysiwyg.css/, /bootstrap-grid-ms\/dist\/bootstrap-grid-ms.min.css/]
+      exclude: [/node_modules\/normalize.css\/normalize.css/, /app\/Scrape\/global.css/]
     }
   ];
 };

@@ -81,35 +81,6 @@ export function routeLoaded() {
   }
 }
 
-
-export function embedMode(mode) {
-  return {
-    type: types.EMBED_MODE,
-    mode
-  }
-}
-
-export function fullScreen(fullScreenMode) {
-  return {
-    type: types.FULL_SCREEN,
-    fullScreenMode
-  }
-}
-
-export function toggleModal(mode) {
-  return {
-    type: types.TOGGLE_MODAL,
-    mode
-  };
-}
-
-export function siteMode(siteMode) {
-  return {
-    type: types.SITE_MODE,
-    siteMode
-  }
-}
-
 export function appError(error) {
   return {
     type: types.APP_ERROR,

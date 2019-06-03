@@ -87,14 +87,13 @@ export default function render(req, res, next, assetManifest, chunkManifest) {
   if(isProd) {
     styles = `
     <link rel="stylesheet" href="${assetManifest['boot.css']}"/>
-    <link rel="stylesheet" href="${assetManifest['scrape.css']}"/>
-    <link rel="stylesheet" href="${assetManifest['runtime.css']}"/>
+    <link rel="stylesheet" href="${assetManifest['vendors.css']}"/>
   `;
 
     scripts = `
-    <script defer type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/react/${req.reactVersion}/umd/react.production.min.js"></script>    
     <script defer type="text/javascript" charset="utf-8" src="${assetManifest['runtime.js']}"></script>
-    <script defer type="text/javascript" charset="utf-8" src="${assetManifest['boot.client.js']}"></script>
+    <script defer type="text/javascript" charset="utf-8" src="${assetManifest['vendors.js']}"></script>
+    <script defer type="text/javascript" charset="utf-8" src="${assetManifest['boot.js']}"></script>
   `
   }
 

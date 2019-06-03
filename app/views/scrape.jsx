@@ -1,12 +1,3 @@
-/*
- * To Enable Google analytics simply replace the hashes with your tracking ID
- * and move the constant to above the analtyicsScript constant.
- *
- * Currently because the ID is declared beneath where is is being used, the
- * declaration will get hoisted to the top of the file.
- * however the assignement  does not, so it is undefined for the type check above.
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting
- */
  //TODO change this tracking ID
 const trackingID  = "'123'";
 
@@ -61,7 +52,7 @@ export default function renderFullPage(renderedContent, initialState, head, styl
         window.__DEV__ = ${!isProd};
       </script>
         ${scripts}
-        ${analtyicsScript}
+        ${isProd ? analtyicsScript : ''}
     </body>
     </html>
   `;

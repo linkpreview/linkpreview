@@ -44,18 +44,18 @@ exports.client = (webpackConfig) => {
         ]
       },
       plugins: commonClientPlugings.concat([
-        new webpack.ProvidePlugin({
+        /*new webpack.ProvidePlugin({
           React: "React", react: "React", "window.react": "React", "window.React": "React"
-        })
+        })*/
       ]),
       optimization: commonClientOptimizations,
       target: 'web',
       stats: { children: false },
       //postcss: postCSSConfig
-      externals : {
+      /*externals : {
         react: 'React',
         'react-dom': 'ReactDOM'
-      },
+      },*/
     };
 
     return clientConfig;

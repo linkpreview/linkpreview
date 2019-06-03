@@ -35,25 +35,5 @@ export class CustomLink extends Component {
       onClick={this.linkOnClick}/>;
   }
 }
-
-/*
-export const CustomLink = ({to, className, target = '', ...rest}) => {
-
-  return <Link
-            to={to}
-            className={className}
-            target = {target}
-            {...rest}
-            onClick={(e) => {
-              if (e.metaKey || e.ctrlKey) return;
-              e.preventDefault();
-
-              if(!to) return null;
-
-              if (window.swUpdate || target === '_blank') return (window.open(to, target));
-              return browserHistory.push(to);
-            }}/>;
-};*/
-
 CustomLink.propTypes = {
 };

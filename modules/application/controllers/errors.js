@@ -31,7 +31,7 @@ exports.apiErrors = (err, req, res, next) => {
   if (!err) return next();
 
   if(res.headersSent) {
-     return exports.logError(req, err);
+     return exports.logError(err, req);
   }
 
   if (err instanceof HttpException) {
@@ -44,15 +44,15 @@ exports.apiErrors = (err, req, res, next) => {
 
   if (err.name === 'ValidationError') {
     if (config.isProd) {
-      exports.logError(req, err);
+      exports.logError(err, req);
     }
-    const firstValidationField = Object.keys(err.errors)[0];    
+    const firstValidationField = Object.keys(err.errors)[0];
     return res.status(400).sendMessage(`validation.failed.${firstValidationField}`);
   }
 
   if (err.name === 'CastError' && err.kind === 'ObjectId') {
     if (config.isProd) {
-      exports.logError(req, err);
+      exports.logError(err, req);
 
       return res.status(404).sendMessage('not_found');
     }
@@ -71,19 +71,19 @@ exports.apiErrors = (err, req, res, next) => {
   }
 
   if(err.status === 404) {
-    exports.logError(req, err);
+    exports.logError(err, req);
     return res.status(404).sendMessage(err.message || 'not_found');
   }
 
   if(err.status === 400) {
 
-    exports.logError(req, err);
+    exports.logError(err, req);
 
     return res.status(400).sendMessage(err.message || 'not_found');
   }
 
   // Log it
-  exports.logError(req, err);
+  exports.logError(err, req);
 
   if(config.isProd) {
     return res.status(500).sendMessage('internal_server_error');
@@ -98,11 +98,11 @@ exports.redirectToServerError = (err, req, res, next) => {
   if (!err) return next();
 
   if(res.headersSent) {
-     return exports.logError(req, err);
+     return exports.logError(err, req);
   }
 
   // Log it
-  exports.logError(req, err);
+  exports.logError(err, req);
   // Redirect to error page
   if(config.isProd) {
     return res.status(500).json({message:'internal_server_error'});
@@ -113,11 +113,11 @@ exports.redirectToServerError = (err, req, res, next) => {
 
 exports.noApiMiddlewareResponded = (req, res) => {
   if(res.headersSent) {
-     return exports.logError(req, new Error('noApiMiddlewareResponded'));
+     return exports.logError(new Error('noApiMiddlewareResponded'), req);
   }
 
   if (config.isProd) {
-      exports.logError(req, new Error(`noAPIMiddlewareResponded: ${req.url}`));
+      exports.logError(new Error(`noAPIMiddlewareResponded: ${req.url}`), req);
       return res.status(404).sendMessage('not_found');
   }
   return res.status(404).sendMessage('noApiMiddlewareResponded. Please see the API for reference');
@@ -138,31 +138,31 @@ exports.postBrowserError = (req, res, next) => {
 
 exports.noMiddlewareResponded = (req, res) => {
   if(res.headersSent) {
-     return exports.logError(req, new Error('noMiddlewareResponded'));
+     return exports.logError(new Error('noMiddlewareResponded'), req);
   }
 
   if (config.isProd) {
-      exports.logError(req, new Error(`noMiddlewareResponded: ${req.url}`));
+      exports.logError(new Error(`noMiddlewareResponded: ${req.url}`), req);
       return res.status(404).sendMessage('not_found');
   }
   return res.status(404).sendMessage('noMiddlewareResponded. Please see the API for reference');
 };
 
-exports.logError = (err, req) => {
+exports.logError = (error, req) => {
 
-  if(!err instanceof Error) {
+  if(!error instanceof Error) {
     if(config.isDev || config.isTest) {
       throw Error('err object should be instance of error');
     }
   }
 
   if (config.isProd) {
-    logger.error(err);
+    logger.error(error);
 
     const agentInfo = events.getAgentInfo(req);
     let slackString = '';
     try {
-      slackString = JSON.stringify({url: req.originalUrl, stack: err && err.stack, ...agentInfo});
+      slackString = JSON.stringify({url: req.originalUrl, stack: error && error.stack, ...agentInfo});
     }catch(err) {
       return logger.error(err);
     }
@@ -171,9 +171,9 @@ exports.logError = (err, req) => {
       channel: config.slackBugChannel,
       username: config.slackUsername,
       text: slackString
-    }, function(err, response) {
-
+    }, (err, response) => {
       if(err) {
+        logger.error(error);
         return logger.error(err);
       }
 
@@ -182,7 +182,7 @@ exports.logError = (err, req) => {
       }
     });
   } else {
-    console.log(err);
+    console.log(error);
   }
 
 };
@@ -219,6 +219,7 @@ exports.logBrowserError = (body = {}, req) => {
       text: slackString
     }, (err, response) => {
       if(err) {
+        logger.error(body);
         return logger.error(err);
       }
       if(response.statusCode !== 200) {

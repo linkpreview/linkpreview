@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Player from './Player';
 
 import { getTitle, getDescription, isImageSmall } from 'Scrape/helpers';
-import styles from './styles';
+import styles from './styles.css';
 
 const cx = classNames.bind(styles);
 

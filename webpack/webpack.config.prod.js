@@ -1,10 +1,11 @@
 const path = require('path');
-const config = require(path.resolve('./server/config'));
+const webpackMerge = require('webpack-merge');
 
-const { getPublicPath } = require(path.resolve('./webpack-v4/helpers'));
+const config = require(path.resolve('./server/config'));
+const { getPublicPath } = require(path.resolve('./webpack/helpers'));
+
 let publicPath = getPublicPath('/assets/');
 const assetsPath = path.resolve('public/assets');
-const webpackMerge = require('webpack-merge');
 
 const serverPublicPath = '/server-assets/';
 const serverAssetsPath = path.resolve('public/server-assets');
@@ -27,14 +28,14 @@ const server = baseConfig.server(
 
 const clientConfig = webpackMerge(client, {
   entry: {
-    boot: [ "bootstrap-webpack!../webpack/bootstrap.config.js", './Scrape/client' ],
+    boot: ['./Scrape/client' ],
     //embed: [ './Scrape/Embed/client' ]
   }
 });
 
 const serverConfig = webpackMerge(server, {
   entry: {
-    scrape: [ "bootstrap-webpack!../webpack/bootstrap.config.js", './Scrape/server' ],
+    scrape: ['./Scrape/server' ],
     //embed: ['./Scrape/Embed/server' ]
   }
 });

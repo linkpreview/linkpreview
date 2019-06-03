@@ -1,7 +1,5 @@
 const path = require('path');
 const crypto = require("crypto");
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const InlineEnviromentVariablesPlugin = require('inline-environment-variables-webpack-plugin');
 const webpack = require('webpack');
 const CompressionPlugin = require("compression-webpack-plugin");
 const WebpackMd5Hash = require('webpack-md5-hash');
@@ -13,6 +11,7 @@ const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
+const Visualizer = require('webpack-visualizer-plugin');
 
 const publicPath = '/assets/';
 
@@ -91,6 +90,9 @@ exports.client = (config = {}) => {
    // See: https://github.com/webpack-contrib/mini-css-extract-plugin/issues/250
    new FilterWarningsPlugin({
      exclude: /mini-css-extract-plugin[^]*Conflicting order between:/
+   }),
+   new Visualizer({
+      filename: '../webpack-visualizer-statistics.html'
    })
   ];
 };

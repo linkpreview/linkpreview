@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { postBrowserError, postScreenShot } from 'actions/app';
-//import html2canvas from 'html2canvas';
-
-const IMG_QUALITY = 0.05;
+import { postBrowserError } from 'actions/app';
 
 export default class ErrorBoundary extends Component {
   constructor(props) {
@@ -28,26 +25,13 @@ export default class ErrorBoundary extends Component {
     // You can also log error messages to an error reporting service here
     const config = {error: error.message, stack: error.stack, errorInfo: errorInfo.componentStack, source: 'ErrorBoundary'};
     if(__PRODCLIENT__ || __DEVCLIENT__) {
-      console.log('dev client, prod client');
       config.url = window && window.location.href;
-    }
-
-    //if it is a client error, post screenshot to the server as well.
-    if(__PRODCLIENT__) {
-      import('html2canvas').then(module => {
-        const html2canvas = module.default;
-        return html2canvas(document.body, {logging: __PRODCLIENT__});
-      }).then(canvas => {
-        const imageData = canvas.toDataURL("image/jpeg", IMG_QUALITY);
-        config.screenshot = imageData;
-      	this.postError(config);
-      });
     }
 
     if(__PRODSERVER__) {
       config.url = 'server_side';
-      this.postError(config);
     }
+    this.postError(config);
   }
 
   homeLink(text) {

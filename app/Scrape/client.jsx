@@ -11,7 +11,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 import createRoutes from 'Scrape/routes';
 import configureStore from 'Scrape/store';
 import preRenderMiddleware from 'middlewares/preRenderMiddleware';
-import NProgress from 'nprogress';
 import { routeLoaded, resetPendingAction, postBrowserError } from 'actions/app';
 import EmptySection from 'Scrape/EmptySection';
 import EmptyContainer from 'Scrape/EmptyContainer';
@@ -20,13 +19,12 @@ import axios from 'axios';
 //gloabl stylesheets
 require('normalize.css');
 require('Scrape/global.css');
-require('nprogress/nprogress.css');
-//require('bootstrap-grid-ms/dist/bootstrap-grid-ms.min.css');
-
-NProgress.configure({ showSpinner: false });
 
 if(window.__DEV__) {
   require('axios-response-logger');
+  if (module.hot) {
+    module.hot.accept();
+  }
 }
 //include commonly used functions in prototype
 require('utils/extend_functions');
@@ -39,29 +37,7 @@ const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState, browserHistory);
 const history = syncHistoryWithStore(browserHistory, store);
 
-history.listen((location) => {
-  NProgress.start();
-});
-
 const routes = createRoutes(store, {url: window.location.href, isClient: true, buildRoutes: window.__BUILD_ROUTES__});
-NProgress.configure({ showSpinner: false });
-//intercept the request and response and keep the progress
-axios.interceptors.request.use((config) => {
-  NProgress.start();
-  return config;
-},  (error) => {
-  NProgress.done();
-  return Promise.reject(error);
-});
-
-axios.interceptors.response.use((response) => {
-  NProgress.done();
-  return response;
-}, (error) => {
-  NProgress.done();
-  return Promise.reject(error);
-});
-
 /**
  * Callback function handling frontend route changes.
  */

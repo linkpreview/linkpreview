@@ -7,11 +7,10 @@ import { errorHandler } from 'reducers/helpers/error';
 import { typeChecker } from 'utils';
 
 export const NET_ERR_MSG = 'Network Error';
-export const FEEDBACK_MESSAGE = 'Feedback Posted Successfully';
 
 export default function app(state=initialState.app, action={}) {
 
-  //deepFreeze(state);
+  deepFreeze(state);
   switch (action.type) {
 
     case types.NOT_FOUND:
@@ -39,26 +38,14 @@ export default function app(state=initialState.app, action={}) {
     case types.ROUTE_LOADED:
       return {...state, routeLoading: false};
 
-    case types.EMBED_MODE:
-      return {...state, embedMode: action.mode};
-
     case types.APP_LOADED:
       return {...state, appLoaded: true};
-
-    case types.FULL_SCREEN:
-      return {...state, fullScreenMode: action.fullScreenMode};
-
-    case types.SITE_MODE:
-      return {...state, siteMode: action.siteMode};
 
     case types.APP_ERROR:
       return {...state, error: action.error};
 
     case types.APP_MESSAGE:
       return {...state, message: action.message};
-
-    case types.TOGGLE_MODAL:
-      return {...state, showAppModal: action.mode || !state.showAppModal};
 
     default:
       return state;

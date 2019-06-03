@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import { CustomLink as Link } from 'components/Link';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import styles from './styles';
+import styles from './styles.css';
 
 const cx = classNames.bind(styles);
 

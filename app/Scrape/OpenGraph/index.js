@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { CustomLink as Link } from 'components/Link';
 import { connect } from 'react-redux';
-import styles from './styles';
+import styles from './styles.css';
 import { getTitle, getDescription, isImageSmall } from 'Scrape/helpers';
 
 const cx = classNames.bind(styles);

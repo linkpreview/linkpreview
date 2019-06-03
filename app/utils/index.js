@@ -1,4 +1,3 @@
-import numeral from 'numeral';
 import polyfills from  './polyfills';
 import throttle from 'lodash/throttle';
 import debouncePromise from 'debounce-promise';

@@ -20,7 +20,14 @@ export default (store, options) => {
         path: SCRAPE_BASE_ROUTE,
         name: 'scrape-home',
         getComponent: getComponentHandler({store, options, modulePath: 'App'}),
-        childRoutes: [],
+        getChildRoutes(location, cb) {
+            const docs = import(/* webpackChunkName: "docs-routes" */'./docs');
+            const otherRoutes = import(/* webpackChunkName: "other-routes" */'./others');
+
+            Promise.all([docs, otherRoutes])
+            .then(routeModuleHandler({store, cb, isMultiple: true, options}))
+            .catch(routeErrorHandler({store, cb, options: {orginated: 'child routes', ...options}}));
+        },
         getIndexRoute(location, cb) {
           store.dispatch(codeLoading());
           import(/* webpackChunkName: 'Scrape-Index' */'Scrape/Index')

@@ -5,7 +5,7 @@ import { push } from 'react-router-redux';
 
 import classNames from 'classnames/bind';
 import { SCRAPE_BASE_ROUTE } from 'Scrape/routes';
-import styles from './styles';
+import styles from './styles.css';
 const cx = classNames.bind(styles);
 
 //comps/Itinerary/helpers.js

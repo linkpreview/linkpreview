@@ -8,7 +8,7 @@ import { push } from 'react-router-redux';
 import ErrorBoundary from 'components/ErrorBoundary';
 import { getScrapes } from 'Scrape/actions';
 
-import styles from './styles';
+import styles from './styles.css';
 import Message from 'components/Message';
 
 import OpenGraph from 'Scrape/OpenGraph';
@@ -84,10 +84,11 @@ export class Index extends Component {
                   </div>
                   <div className={cx('break-line')}></div>
                   <button className="btn btn-success" onClick={this.onSearch}>Scrape</button>
+                  <div className={cx('break-line')}></div>
                 </section>
 
                 {isFetching && <div className={cx('loading')}></div>}
-                {scrape && scrape.json && <div><hr /><p>The links will look something like this in facebook, twitter and other platform that supports these protocols </p></div>}
+                {scrape && scrape.json && <div><hr /><p>The links will look something like this in facebook, twitter and other platforms that support these protocols </p></div>}
 
                 <section>
                   <div className={cx('card')}>

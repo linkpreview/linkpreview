@@ -1,6 +1,7 @@
 
 .opengraph-container {
   width:500px;
+  border: 1px solid #ddd;
   /*min-height:339.11px;*/
   overflow:hidden;
   /*background-color: #eee;*/
@@ -16,6 +17,7 @@
 }
 
 .summary {
+  width: 100%;
   background-color: #eee;
   border-bottom: 1px solid #dddfe2;
   padding: 10px 12px;

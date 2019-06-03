@@ -12,7 +12,6 @@ import EmptySection from 'Scrape/EmptySection';
 import EmptyContainer from 'Scrape/EmptyContainer';
 
 import styles from './main.css';
-import NProgress from 'nprogress';
 const cx = classNames.bind(styles);
 import { appLoaded, closeNetErrorComponent, toggleModal, closeAnnouncementMessageComponent } from 'actions/app';
 import { serializeParams, sanitizeUtmFields } from 'utils';
@@ -21,15 +20,6 @@ export class App extends Component {
 
     constructor(props) {
         super(props);
-    }
-
-    componentWillReceiveProps(newProps) {
-        if(newProps.isCodeLoading) {
-            NProgress.start();
-        }
-        if(!newProps.isCodeLoading) {
-            NProgress.done();
-        }
     }
 
     componentDidMount() {
@@ -58,7 +48,7 @@ export class App extends Component {
                   <ErrorBoundary className="app-error-boundary">
                       <main className={cx('main-container')}>
                           <div className="container">
-                            {showNetErrorComponent && <Message error={netError} removable={true} className="net-error" dispatch={dispatch} action={closeNetErrorComponent} /> }                                
+                            {showNetErrorComponent && <Message error={netError} removable={true} className="net-error" dispatch={dispatch} action={closeNetErrorComponent} /> }
                           </div>
                           {children}
                           {!children && <EmptyContainer><EmptySection text="Something went wrong"></EmptySection></EmptyContainer>}

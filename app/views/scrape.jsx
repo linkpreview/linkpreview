@@ -1,17 +1,19 @@
  //TODO change this tracking ID
-const trackingID  = "'123'";
+const trackingID  = "'79016048-3'";
 
 const analtyicsScript =
   typeof trackingID === "undefined" ? ``
     :
-    `<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    ga('create', ${trackingID}, 'auto');
-    ga('send', 'pageview');
-  </script>`;
+    `<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-${trackingID}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-${trackingID}');
+    </script>
+`;
 
 /*
  * Our html template file

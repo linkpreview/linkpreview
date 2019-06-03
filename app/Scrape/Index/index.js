@@ -83,7 +83,7 @@ export class Index extends Component {
                     {error && <Message error={error} />}
                   </div>
                   <div className={cx('break-line')}></div>
-                  <button className="btn btn-success" onClick={this.onSearch}>Scrape</button>
+                  <button className={cx('scrape-button')} onClick={this.onSearch}>Scrape</button>
                   <div className={cx('break-line')}></div>
                 </section>
 

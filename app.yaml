@@ -2,3 +2,16 @@ runtime: nodejs10
 
 env_variables:
   APP_ENGINE: "ROFS" # read-only filesystem
+
+handlers:
+- url: /assets
+  static_dir: public
+
+- url: /(browserconfig.xml|crossdomain.xml|humans.txt|robots.txt|site.webmanifest|sitemap.xml)
+  static_files: static/\1
+
+- url: /(favicon.ico|icon.png|linkpreview-logo.png|tile-wide.png|tile.png)
+  static_files: static/\1
+
+- url: /linkpreview.1.css
+  static_files: static/\1

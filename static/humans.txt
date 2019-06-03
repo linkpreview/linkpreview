@@ -2,9 +2,8 @@
 # The humans responsible & technology colophon
 
 # TEAM
-  Abin   -- CoFounder/Marketing -- @abinkumar19
-  Deepak -- CoFounder/CTO -- @bring2dip
-  Dipesh -- CoFounder/Design -- @dps_acharya
+  Deepak -- Developer -- @bring2dip
+  Dipesh -- Developer -- @dps_acharya
 
 # THANKS
 

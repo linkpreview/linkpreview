@@ -1,7 +1,8 @@
 'use strict';
 
 
-const    path = require('path'),
+const path = require('path'),
+    config = require('./config'),
     mainFile = path.basename(require.main.filename);
 
 //change log date every time app restarts
@@ -11,7 +12,7 @@ const now = new Date();
 const logStartDate = `${now.getFullYear()}-${(now.getMonth() + 1)}-${now.getDate()}`;
 const loggerName = `logs-${logStartDate}`;
 let streams = null;
-if (process.env.NODE_ENV === 'production') {
+if (config.isProd && config.appEngine !== 'ROFS') {
   streams = [{path: 'log/' + loggerName + '.log'}];
 } /*else if (process.env.NODE_ENV === 'test') {
   streams = [{
@@ -20,7 +21,7 @@ if (process.env.NODE_ENV === 'production') {
     stream: process.stdout
   }];
 } */ else {
-  // Development
+  // if running in Development mode or if App Engine runs on read only file system
   streams = [{stream: process.stdout}];
 }
 

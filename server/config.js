@@ -9,7 +9,7 @@ const envVarsSchema = Joi.object({
     .allow(['development', 'production', 'test', 'provision', 'CI'])
     .default('development'),
   PORT: Joi.number()
-    .default(4040),
+    .default(8080),
   HOST: Joi.string()
     .default('localhost'),
   HELMET_DISABLED: Joi.boolean()
@@ -23,7 +23,9 @@ const envVarsSchema = Joi.object({
     .allow(['linkpreview.dev', 'linkpreview.test'])
     .default('linkpreview.test'),
   WEBPACK_DEV_SERVER_PORT: Joi.number()
-    .default(8181)
+    .default(8181),
+  APP_ENGINE: Joi.string()
+    .default('OS'),
 }).unknown()
   .required();
 
@@ -48,7 +50,8 @@ const config = {
   },
   webpack: {
     devServerPort: envVars.WEBPACK_DEV_SERVER_PORT
-  }
+  },
+  appEngine: envVars.APP_ENGINE
 };
 
 config.isDev = config.env === 'development';

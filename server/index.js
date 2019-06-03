@@ -16,6 +16,7 @@ Promise.resolve({}).then(() => {
 	const app = express.initApp();
 
 	console.log('Env: ' + config.env);
+	console.log('Engine: ' + config.appEngine);
 
 	const httpServer = http.createServer(app);
 

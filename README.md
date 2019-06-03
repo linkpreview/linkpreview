@@ -1,12 +1,14 @@
 # Link Preview
 Open Graph, Twitter Card, Oembed preview. Shows visual cards that mimics link previews in facebook, twitter and other sites that support link preview.
 
+https://linkpreview.dev/
+
 # Requirements
 
-  1. Node.js v12.3.1
+  1. Node.js v10.16.0
 
   ```
-  nvm install v12.3.1
+  nvm install v10.16.0
   ```
 
 # Installation
@@ -42,12 +44,13 @@ Open Graph, Twitter Card, Oembed preview. Shows visual cards that mimics link pr
 
 # Production
 
+
   1. Build
   ````
   npm run build
   ````
 
-  2. run
+  2. Run
   ````
   npm run start
   ````

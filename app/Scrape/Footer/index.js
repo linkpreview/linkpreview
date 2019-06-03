@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { CustomLink as Link } from 'components/Link';
+import MadeWithLove from 'components/MadeWithLove';
 import { connect } from 'react-redux';
 import styles from './styles.css';
 
@@ -20,7 +21,7 @@ class Footer extends Component {
         <div className={cx('container')}>
             { appLoaded &&
               (<div className="fade-text">
-                <a href="/" target="_blank"><small>Namchey</small></a>
+                <MadeWithLove />
               </div>)
             }
         </div>

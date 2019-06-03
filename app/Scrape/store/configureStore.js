@@ -34,7 +34,7 @@ export default function configureStore(initialState, history) {
     if (module.hot) {
       // Enable Webpack hot module replacement for reducers
       module.hot.accept('Scrape/reducers', () => {
-        const nextReducer = require('Scrape/reducers');
+        const nextReducer = require('Scrape/reducers/index');
         store.replaceReducer(nextReducer);
       });
     }

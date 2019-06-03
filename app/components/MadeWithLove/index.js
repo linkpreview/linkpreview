@@ -2,22 +2,20 @@ import React from 'react';
 import UTFSymbol from 'components/UTFSymbol';
 import classNames from 'classnames/bind';
 import styles from './styles.css';
-import { getBgAndFgStyles, getNamcheyUtmFieldsAgency } from 'utils/page';
 
 const cx = classNames.bind(styles);
 
-const MadeWithLove = ({ showName = true, page = {}}) => {
-  let colors = page.colors || {};
+const MadeWithLove = () => {
   return (
-    <div style={getBgAndFgStyles(null, colors.footBarFg)} className={cx('fade-text','made-with-love-container')}>
+    <div className={cx('fade-text','made-with-love-container')}>
       <div className={cx('column')}>Made with</div>
       <div className={cx('column', 'colum-love')}>
         <small className={cx('made-with-love')}>
-          <UTFSymbol style={{color: colors.primary}} code="10084" />
+          <UTFSymbol code="10084" />
         </small>
       </div>
       <div className={cx('column')}>
-        by {showName ? <a style={getBgAndFgStyles(null, colors.footBarFg)} href={`https://namchey.com?${getNamcheyUtmFieldsAgency({page})}&utm_content=made_with_love`} target="__blank">Namchey</a> : null}
+        by <a href={`https://namchey.com?utm_source=linkpreview.dev&utm_medium=site&utm_campaign=opensource&utm_content=made_with_love`} target="__blank">Namchey</a>
       </div>
     </div>
 

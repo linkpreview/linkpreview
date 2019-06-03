@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 exports.client = (config = {}) => {
   return {
-      minimize: false,
+      minimize: true,
       runtimeChunk: 'single',
       splitChunks: {
         chunks: 'all',
@@ -49,6 +49,6 @@ exports.client = (config = {}) => {
 
 exports.server = (config = {}) => {
   return {
-    minimize: false,
+    minimize: true,
   };
 };

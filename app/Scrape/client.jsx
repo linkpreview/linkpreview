@@ -21,10 +21,7 @@ require('normalize.css');
 require('Scrape/global.css');
 
 if(window.__DEV__) {
-  require('axios-response-logger');
-  if (module.hot) {
-    module.hot.accept();
-  }
+  require('axios-response-logger');  
 }
 //include commonly used functions in prototype
 require('utils/extend_functions');

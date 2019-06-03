@@ -31,10 +31,10 @@ if(config.isDev) {
 module.exports = (app) => {
   // Use helmet to secure Express headers
   const SIX_MONTHS = 15778476000;
-  if(!config.skipCSP) {
+  /*if(!config.skipCSP) {
     app.use(helmet.contentSecurityPolicy({
       directives: {
-        defaultSrc: common,
+        //defaultSrc: common,
         connectSrc: [...common, 'www.google-analytics.com',...domainConnectSources],
         fontSrc: [...common, 'fonts.gstatic.com'],
         scriptSrc: [...common, "'unsafe-inline'", 'www.google-analytics.com', 'cdn.ravenjs.com', 'cdnjs.cloudflare.com', '*.spedcheck.space', '*.amazonaws.com', 'https://unpkg.com'],
@@ -48,8 +48,7 @@ module.exports = (app) => {
         reportUri: '/csp-report-violation'
       }
     }));
-  }
-
+  }*/
 
   //prevents clickjacking
   //app.use(helmet.frameguard());

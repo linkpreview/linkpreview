@@ -36,6 +36,7 @@ const config = {
   env: envVars.NODE_ENV,
   port: envVars.PORT,
   host: envVars.HOST,
+  domain: envVars.DOMAIN,
   helmetDisabled: envVars.HELMET_DISABLED,
   showLogs: envVars.SHOW_LOGS,
   app: {

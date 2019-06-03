@@ -1,7 +1,6 @@
 import * as types from 'types/index';
 import deepFreeze from 'deep-freeze';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import NProgress from 'nprogress';
 import initialState from 'store/initial-state';
 import { errorHandler } from 'reducers/helpers/error';
 import { typeChecker } from 'utils';

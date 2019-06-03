@@ -15,7 +15,7 @@
     "build:dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --colors --progress --config ./webpack/webpack.config.dev-server.js",
     "build:prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --config ./webpack/webpack.config.prod.js",
     "build": "npm run clean && npm run build:prod",
-    "app-dev-server": "cross-env NODE_ENV=development node_modules/.bin/webpack-dev-server --port 8080 --progress --colors --hot-only --config ./webpack/webpack.config.dev-client.js",
+    "app-dev-server": "cross-env NODE_ENV=development node_modules/.bin/webpack-dev-server --port 8181 --progress --colors --hot-only --config ./webpack/webpack.config.dev-client.js",
     "test:server": "cross-env NODE_ENV=test ./node_modules/nyc/bin/nyc.js --report-dir=./coverage/Server --reporter=html --reporter=lcov --reporter=text-summary node_modules/mocha/bin/mocha --growl modules/*/tests/**/*.js --grep",
     "test": "cross-env NODE_ENV=test ./node_modules/karma/bin/karma start --ONLY",
     "test:watch": "cross-env  NODE_ENV=test npm test --watch -- --no-single-run --ONLY"

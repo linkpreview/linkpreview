@@ -126,7 +126,7 @@
     "webpack-visualizer-plugin": "^0.1.11"
   },
   "engines": {
-    "node": "12.x"
+    "node": "10.x"
   },
   "dependencies": {
     "JSONStream": "^1.3.3",

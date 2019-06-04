@@ -2,6 +2,8 @@
 
 # Link Preview
 [![Build Status](https://travis-ci.org/namchey/linkpreview.svg?branch=master)](https://travis-ci.org/namchey/linkpreview)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f8aae8449e8d187af9aa/maintainability)](https://codeclimate.com/github/namchey/linkpreview/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f8aae8449e8d187af9aa/test_coverage)](https://codeclimate.com/github/namchey/linkpreview/test_coverage)
 
 Open Graph, Twitter Card, Oembed preview. Shows visual cards that mimics link previews in social media like facebook, twitter, vk, viber and other sites that support link preview.
 

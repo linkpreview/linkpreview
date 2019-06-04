@@ -1,6 +1,7 @@
 ![Link Preview Logo](https://raw.githubusercontent.com/namchey/linkpreview/master/app/images/blue-logo.png)
 
 # Link Preview
+[![Build Status](https://travis-ci.org/namchey/linkpreview.svg?branch=master)](https://travis-ci.org/namchey/linkpreview)
 
 Open Graph, Twitter Card, Oembed preview. Shows visual cards that mimics link previews in social media like facebook, twitter, vk, viber and other sites that support link preview.
 

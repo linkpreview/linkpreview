@@ -31,7 +31,7 @@ export class Docs extends Component {
             <div className={cx('container')}>
               <div className={cx('docs-container')}>
                 <h1>Docs</h1>
-
+                <a target="_blank" href="https://github.com/namchey/linkpreview/blob/master/README.md">Read Me</a>
               </div>
             </div>
         );

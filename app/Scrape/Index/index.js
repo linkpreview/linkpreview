@@ -83,12 +83,12 @@ export class Index extends Component {
                     {error && <Message error={error} />}
                   </div>
                   <div className={cx('break-line')}></div>
-                  <button className={cx('scrape-button')} onClick={this.onSearch}>Scrape</button>
+                  <button className={cx('preview-button')} onClick={this.onSearch}>Show Preview</button>
                   <div className={cx('break-line')}></div>
                 </section>
 
                 {isFetching && <div className={cx('loading')}></div>}
-                {scrape && scrape.json && <div><hr /><p>The links will look something like this in facebook, twitter and other platforms that support these protocols </p></div>}
+                {scrape && scrape.json && <div><hr /><p className={cx('fade-text')}>The link will look something like these in Social Media (facebook, vk, twitter, medium, viber) and other platforms that support these protocols </p></div>}
 
                 <section>
                   <div className={cx('card')}>

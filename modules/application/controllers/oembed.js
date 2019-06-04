@@ -11,8 +11,10 @@ const path = require('path'),
     events = require(path.resolve('modules/application/services/events')),
     _ = require('lodash');
 
-exports.embedRender = (req, res, next) => {
-  
+exports.embedViewMiddleware = (req, res, next) => {
+  console.log('isEmbedView middleware');
+  req.isEmbedView = true;
+  next();
 }
 /**
  * Oembed Implementation
@@ -48,27 +50,13 @@ exports.getEmbed = function(req, res, next) {
         return res.status(400).json({message: 'url is required'});
     }
 
-    let urlParts = url.split('/');
-
-    const notFoundMessage = {message: 'No embed resource found for this url'};
-
-    if(urlParts[urlParts.length - 2] !== 'itineraries') {
-        if(format === 'xml') {
-            res.set('Content-Type', 'text/xml');
-            return res.status(404).send(jsontoxml(notFoundMessage));
-
-        }
-
-        return res.status(404).json(notFoundMessage);
-    }
-
     const result = {
         type: 'rich',
         version: '1.0',
-        title: itinerary.name,
-        provider_name: 'Namchey',
+        title: 'Link Preview',
+        provider_name: 'Link Preview',
         provider_url: config.app.site,
-        height: maxHeight ? maxHeight : '300',
+        height: maxHeight ? maxHeight : '365',
         width: maxWidth ? maxWidth : '100%',
         author_name: 'Namchey',
         author_url: `https://namchey.com`

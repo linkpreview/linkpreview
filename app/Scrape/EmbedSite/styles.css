@@ -1,0 +1,31 @@
+.embed-container {
+
+}
+
+.favicon {
+  width: 16px;
+  margin-right: 5px;
+}
+
+.title {
+  font-size: 1.4em;
+  margin:0.5em 0;
+}
+
+.description {
+  font-weight: normal;
+  /*match the image width*/
+  max-width: 458.5px;
+  word-wrap: break-word;
+  line-height: 1em;
+  margin: 0.5em 0;
+}
+
+.image {
+  height: 240px;
+  border-radius: 4px;
+}
+
+.footer {
+  font-size: 12px;
+}

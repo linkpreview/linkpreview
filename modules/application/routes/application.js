@@ -17,7 +17,7 @@ router.route('/api/oembed')
 router.route('/api/error/browser')
   .post(errorController.postBrowserError);
 
-router.get('/embed/*', embedController.embedRender);
+router.get('/embed', embedController.embedViewMiddleware, scrapeController.indexView);
 
 router.get('/opensearch.xml', controllers.openSearch);
 

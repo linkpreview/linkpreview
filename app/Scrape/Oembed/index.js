@@ -34,7 +34,7 @@ class Oembed extends Component {
         <div width={body.width} className={cx('oembed-container')}>
           {html && <div dangerouslySetInnerHTML = {{__html: html}}></div>}
         </div>
-        <p><a href="https://oembed.com/">Click here </a> for more details about Oembed Protocol</p>
+        <p className={cx('fade-text')}><a href="https://oembed.com/">Click here </a> for more details about Oembed Protocol</p>
         {Object.keys(body).length && (<pre className={cx('detail')}>
           {JSON.stringify(body, null, 2)}
         </pre>)}

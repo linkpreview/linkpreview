@@ -72,7 +72,7 @@ class OpenGraph extends Component {
             </div>
           </a>
         </div>
-        <p><a href="http://www.ogp.me/">Click here </a> for more details about The Open Graph protocol</p>
+        <p className={cx('fade-text')}><a href="http://www.ogp.me/">Click here </a> for more details about The Open Graph protocol</p>
         {Object.keys(opengraph).length && (<pre className={cx('detail')}>
           {JSON.stringify(opengraph, null, 2)}
         </pre>)}

@@ -28,12 +28,12 @@
   border-radius: 4px;
   border: 1px solid #ddd;
   margin-bottom: 10px;
-  padding-left: 20px;
+  /*padding-left: 20px;  */
 }
 
 .go-to-top {
   position: fixed;
-  bottom: 50px;
+  bottom: 90px;
   right: 50px;
   display: block;
   cursor: pointer;
@@ -43,14 +43,16 @@
   border-radius: 3px;
   padding: 3px;
 }
-.scrape-button {
+
+.preview-button {
   padding: 10px 23px;
   border-radius: 5px;
   outline: none;
-  border: 1px solid #a0a0a0;
+  border: 1px solid #ddd;
   text-decoration: none;
   cursor: pointer;
 }
+
 .scrape-button:hover {
   background-color: #cccccc;
 

@@ -3,6 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { RouterContext, match, createMemoryHistory } from 'react-router'
 import { Provider } from 'react-redux';
 import createRoutes from 'Scrape/routes';
+import createEmbedRoutes from 'Scrape/routes/embed';
 import configureStore from 'Scrape/store';
 import headconfigFactory from 'components/Head/Meta';
 import preRenderMiddleware from 'middlewares/preRenderMiddleware';
@@ -13,6 +14,7 @@ import render404Page from 'views/404';
 import axios from 'axios';
 import { commonMeta } from 'head/common';
 import { postBrowserError } from 'actions/app';
+import querystring from 'querystring';
 //include commonly used functions in prototype
 require('utils/extend_functions');
 
@@ -108,11 +110,33 @@ export default function render(req, res, next, assetManifest, chunkManifest) {
   storeInitialState.app.host = req.clientConfig.host;
   storeInitialState.app.site = req.clientConfig.site;*/
 
+  const metaProperties = {
+    title:'Link Preview',
+    desc:'Open Graph, Twitter Card, Oembed preview',
+    img:require('images/doggo.jpg'),
+    imgAlt: "A dog with different eye color",
+    url: 'https://linkpreview.dev',
+    author: 'Namchey',
+    authorUrl: 'https://namchey.com',
+    type: 'summary',
+    twitterCardType: 'summary_large_image',
+    //embed
+    embedLink: `${req.clientConfig.site}/embed`
+  };
+
+  const oembedUrl = `${req.clientConfig.site}`;
+
+  metaProperties.xmlOembedLink = `<link rel="alternate" type="text/xml+oembed" href="${req.clientConfig.site}/api/oembed?url=${querystring.escape(oembedUrl)+'&amp;format=xml'}">`;
+  metaProperties.jsonOembedLink = `<link rel="alternate" type="text/json+oembed" href="${req.clientConfig.site}/api/oembed?url=${querystring.escape(oembedUrl)+'&amp;format=json'}">`;
+
   const store = configureStore(storeInitialState, history);
-
-  const routes = createRoutes(store, {isServer: true, url: req.url, ip: req.ip});
-
-  const metaProperties = {fb_app_id: '123', title:'React Scrape', desc:'Scrape Site and view Twitter Card details, Open graph details, Oembed ', /*img:require('images/linkpreview-logo.png'),*/ url: req.url};
+  let routes = null;
+  if(req.isEmbedView) {
+    routes = createEmbedRoutes(store, {isServer: true, url: req.url, ip: req.ip});
+    metaProperties.isEmbedView = true;
+  } else {
+    routes = createRoutes(store, {isServer: true, url: req.url, ip: req.ip});
+  }
 
   //forward user agent;
   forwardHeaders({req, axios, authenticated, isStaging: __STAGING__});

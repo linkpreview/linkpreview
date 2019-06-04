@@ -4,9 +4,13 @@ Gray Blue theme
 */
 
 @value primaryColor #3385c6;
+/*doggo blue*/
+/*@value primaryColor #46556a;*/
 @value primaryCompliment #fff;
 @value secondaryColor #4279a3;
-@value tertiaryColor #ccc;
+/*doggo brown*/
+/*@value secondaryColor #3b2720;*/
+@value tertiaryColor #ddd;
 @value headingColor #476c8a;
 @value subHeadingColor #49657b;
 @value contentColor #000;

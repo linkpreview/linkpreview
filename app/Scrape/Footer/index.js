@@ -4,7 +4,9 @@ import classNames from 'classnames/bind';
 import { CustomLink as Link } from 'components/Link';
 import MadeWithLove from 'components/MadeWithLove';
 import { connect } from 'react-redux';
+import namcheyLogo from 'images/namchey-logo.png';
 import styles from './styles.css';
+
 
 const cx = classNames.bind(styles);
 
@@ -21,6 +23,8 @@ class Footer extends Component {
         <div className={cx('container')}>
             { appLoaded &&
               (<div className="fade-text">
+                <img className={cx('namchey-logo')} src={namcheyLogo} alt="Namchey Logo" />
+                <div className={cx('break-line')}></div>
                 <MadeWithLove />
               </div>)
             }

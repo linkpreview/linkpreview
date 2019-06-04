@@ -27,6 +27,7 @@ const siteUpgrading = (res) => {
 
 exports.indexView = [
   function(req, res, next) {
+    console.log('isEmbedView', req.isEmbedView);
     let compiled_app_module_path = path.resolve('public', 'assets', 'scrape.server.js');
     if(config.isProd || config.isCI) {
         compiled_app_module_path = path.resolve('public', 'server-assets', 'scrape.server.js');

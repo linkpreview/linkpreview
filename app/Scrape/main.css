@@ -7,8 +7,21 @@
 
 
   .main-container {
-    min-height: 500px;
+    min-height: 300px;
     /*totalheigh - nav height - spacer height */
-    min-height: calc(100vh - 150px);
+    min-height: calc(100vh - 350px);
+  }
+}
+
+@media (max-width: 768px) {
+  .spacer {
+    height: 50px;
+    width:100%
+  }
+
+  .main-container {
+    min-height: 200px;
+    /*totalheigh - nav height - spacer height */
+    min-height: calc(100vh - 300px);
   }
 }

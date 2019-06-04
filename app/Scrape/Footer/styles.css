@@ -5,8 +5,13 @@
   padding: 10px 0;
   background: tertiaryColor;
   color:linkColor;
+  text-align: center;
 }
 
 .footer a {
   color:#000 !important;
+}
+
+.namchey-logo {
+  height: 50px;
 }

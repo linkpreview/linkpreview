@@ -9,6 +9,7 @@ import { Router, browserHistory, match } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import createRoutes from 'Scrape/routes';
+import createEmbedRoutes from 'Scrape/routes/embed';
 import configureStore from 'Scrape/store';
 import preRenderMiddleware from 'middlewares/preRenderMiddleware';
 import { routeLoaded, resetPendingAction, postBrowserError } from 'actions/app';
@@ -17,11 +18,12 @@ import EmptyContainer from 'Scrape/EmptyContainer';
 import axios from 'axios';
 
 //gloabl stylesheets
+require('../../static/favicon.ico');
 require('normalize.css');
 require('Scrape/global.css');
 
 if(window.__DEV__) {
-  require('axios-response-logger');  
+  require('axios-response-logger');
 }
 //include commonly used functions in prototype
 require('utils/extend_functions');
@@ -34,7 +36,12 @@ const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState, browserHistory);
 const history = syncHistoryWithStore(browserHistory, store);
 
-const routes = createRoutes(store, {url: window.location.href, isClient: true, buildRoutes: window.__BUILD_ROUTES__});
+let routes = null;
+if(window.__EMBED_VIEW__) {
+  routes = createEmbedRoutes(store, {url: window.location.href, isClient: true, buildRoutes: window.__BUILD_ROUTES__});
+} else {
+  routes = createRoutes(store, {url: window.location.href, isClient: true, buildRoutes: window.__BUILD_ROUTES__});
+}
 /**
  * Callback function handling frontend route changes.
  */

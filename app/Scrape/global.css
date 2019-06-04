@@ -32,8 +32,8 @@ a {
 
 @media (max-width:768px) {
   .container {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
@@ -43,7 +43,7 @@ input {
 }
 
 input:focus, input:hover, input:active {
-  border-color: #777;
+  border-color: #ccc;
 }
 
 button {
@@ -54,6 +54,9 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: #ddd;
+  background-color: #ccc;
+}
 
+.fade-text, .fade-text > a  {
+  color: #888 !important;
 }

@@ -1,5 +1,5 @@
  //TODO change this tracking ID
-const trackingID  = "'79016048-3'";
+const trackingID  = "79016048-3";
 
 const analtyicsScript =
   typeof trackingID === "undefined" ? ``
@@ -39,6 +39,27 @@ export default function renderFullPage(renderedContent, initialState, head, styl
       ${head.link ? head.link : ''}
       ${head.title ? head.title : ''}
       ${head.meta ? head.meta : ''}
+      <meta property="og:site_name" content="Link Preview">
+      <meta property="og:title" content="${metaProperties.title}">
+      <meta property="og:description" content="${metaProperties.desc}">
+      <meta property="og:author" content="${metaProperties.author}">
+      <meta property="og:author_url" content="${metaProperties.authorUrl}">
+      <meta property="og:url" content="${metaProperties.url}">
+      <meta property="og:image" content="${metaProperties.img}">
+      <meta property="og:image:alt" content="${metaProperties.imgAlt}">
+      <meta property="og:type" content="${metaProperties.type}">
+
+      <meta name="twitter:title" content="${metaProperties.title}">
+      <meta name="twitter:site" content="@linkpreviewdev">
+      <meta name="twitter:description" content="${metaProperties.desc}">
+      <meta name="twitter:url" content="${metaProperties.url}">
+      <meta name="twitter:image" content="${metaProperties.img}">
+      <meta name="twitter:author" content="${metaProperties.author}">
+      <meta name="twitter:author_url" content="${metaProperties.authorUrl}">
+      <meta name="twitter:card" content="${metaProperties.twitterCardType}">
+
+      ${metaProperties.xmlOembedLink ? metaProperties.xmlOembedLink : ''}
+      ${metaProperties.jsonOembedLink ? metaProperties.jsonOembedLink : ''}
       ${styles}
         <script>
             window.__PROD__ = ${JSON.stringify(isProd)};
@@ -52,6 +73,7 @@ export default function renderFullPage(renderedContent, initialState, head, styl
       <script>
         window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
         window.__DEV__ = ${!isProd};
+        window.__EMBED_VIEW__ = ${metaProperties.isEmbedView};
       </script>
         ${scripts}
         ${isProd ? analtyicsScript : ''}

@@ -86,7 +86,7 @@ class TwitterCard extends Component {
           {/*SUMMARY_CARDS.indexOf(twittercard['twitter:card']) !== -1 && this.summary()*/}
           {/*twittercard['twitter:card'] === 'player' && <Player twittercard = {twittercard} />*/}
         </div>
-        <p><a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html">Click here </a> for more details about Twitter Card</p>
+        <p className={cx('fade-text')}><a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html">Click here </a> for more details about Twitter Card</p>
         {Object.keys(twittercard).length && (<pre className={cx('detail')}>
           {JSON.stringify(twittercard, null, 2)}
         </pre>)}

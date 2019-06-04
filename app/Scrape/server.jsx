@@ -65,7 +65,7 @@ export function postRenderError(error, url) {
 function renderContent({res, componentHTML, initialState, headconfig, chunkManifest, styles, scripts, metaProperties, status}) {
   const output = renderFullPage(componentHTML, initialState, {
     title: headconfig.title,
-   // meta: headconfig.meta,
+    meta: headconfig.meta,
     link: headconfig.link,
     scripts: chunkManifest
   }, styles, scripts, metaProperties);

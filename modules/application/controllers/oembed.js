@@ -11,8 +11,7 @@ const path = require('path'),
     events = require(path.resolve('modules/application/services/events')),
     _ = require('lodash');
 
-exports.embedViewMiddleware = (req, res, next) => {
-  console.log('isEmbedView middleware');
+exports.embedViewMiddleware = (req, res, next) => {  
   req.isEmbedView = true;
   next();
 }

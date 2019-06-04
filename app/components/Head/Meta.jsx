@@ -25,7 +25,7 @@ class Meta extends React.Component {
   }
 }
 
-export default (document, assetManifest) => {
+export default (assetManifest) => {
   ReactDOMServer.renderToString(<Meta {...{ assetManifest }} />);
   let header = Helmet.rewind();
   return header;

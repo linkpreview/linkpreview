@@ -2,9 +2,9 @@ import { links, meta } from 'head/common';
 
 export const TITLE = 'Link Preview';
 
-export const DESC = 'Open Graph, Twitter Card, Oembed Link Preview. Shows visual cards that mimics link previews in facebook, twitter and other sites that support link preview.';
+export const DESC = 'Open Graph, Twitter Card, Oembed preview. Shows visual cards that mimics link previews in social media like facebook, twitter, vk, viber and other sites that support link preview.';
 
-export const KEYWORDS = 'opengraph,linkpreview,twittercard,oembed';
+export const KEYWORDS = 'opengraph,linkpreview,twittercard,oembed,rich preview';
 
 //helper
 const capitalize = (str) => {

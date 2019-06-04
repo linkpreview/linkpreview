@@ -86,7 +86,7 @@ exports.init =  (db) => {
 /**
  * Initialize the Express application for user server app
  */
-module.exports.initApp = (db) => {
+module.exports.initApp = () => {
   // Initialize express app
   const app = exports.init();
 

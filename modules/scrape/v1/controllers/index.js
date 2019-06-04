@@ -25,9 +25,7 @@ const siteUpgrading = (res) => {
 };
 
 
-exports.indexView = [
-  function(req, res, next) {
-    console.log('isEmbedView', req.isEmbedView);
+exports.indexView = (req, res, next) => {
     let compiled_app_module_path = path.resolve('public', 'assets', 'scrape.server.js');
     if(config.isProd || config.isCI) {
         compiled_app_module_path = path.resolve('public', 'server-assets', 'scrape.server.js');
@@ -46,12 +44,58 @@ exports.indexView = [
         if(checkFileExists(chunkManifestPath)) {
           chunkManifest = require(chunkManifestPath);
         }
-        App.default(req, res, next, assetManifest, chunkManifest);
+        return App.default(req, res, next, assetManifest, chunkManifest);
     } else {
-        App.default(req, res, next, {}, {});
+        return App.default(req, res, next, {}, {});
     }
 
-}];
+};
+
+const hanldeCallback = (req, res) => (err, json, body) => {  
+  if(err) {
+    return res.status(500).json(err);
+  }
+
+  const $ = cheerio.load(body);
+  const $head = $('head');
+  json.head = [];
+  $head.children().each((i, el) => {
+    const $el = $(el);
+
+    json.head.push($el.attr());
+    //return { ...$el.attr()};
+    //console.log($el)
+    //console.log($el.attr());
+    /*if ($el.attr('name') && $el.attr('content')) {
+      result[$el.attr('name')] = $el.attr('content');
+    }*/
+  });
+  json.url = req.query.url;
+  const oembed = json.oembed;
+  if(oembed.formats.length === 0) {
+    return res.status(200).json({json, body});
+  }
+
+  let uri = null;
+  if(oembed.json) {
+    uri = oembed.json;
+  }
+  /*
+  TODO support xml data fetching as well
+  if(!oembed.json && oembed.xml) {
+    uris.push(oembed.xml);
+  }
+  */
+
+  //const requestOptions = {uri: oembed && oembed[oembed.formats[0]]}
+  requestPromise({uri}).then(res => {
+    json.oembed.body = res;
+    res.status(200).json({json, body});
+  }).catch(err => {
+    json.oembed.error = err;
+    res.status(200).json({json, body});
+  });
+}
 
 //TODO use redis
 //support for 50 items
@@ -64,53 +108,7 @@ const cache = {items: {}}
     if(!req.query.url) {
       return res.status(400).json({message: 'url is required', code: 'EMPTY_URL'});
     }
-
-    suq(req.query.url, (err, json, body) => {
-        if(err) {
-          return res.status(500).json(err);
-        }
-
-        const $ = cheerio.load(body);
-        const $head = $('head');
-        json.head = [];
-        $head.children().each((i, el) => {
-          const $el = $(el);
-
-          json.head.push($el.attr());
-          //return { ...$el.attr()};
-          //console.log($el)
-          //console.log($el.attr());
-          /*if ($el.attr('name') && $el.attr('content')) {
-            result[$el.attr('name')] = $el.attr('content');
-          }*/
-        });
-        json.url = req.query.url;
-        const oembed = json.oembed;
-        if(oembed.formats.length === 0) {
-          return res.status(200).json({json, body});
-        }
-
-        let uri = null;
-        if(oembed.json) {
-          uri = oembed.json;
-        }
-        /*
-        TODO support xml data fetching as well
-        if(!oembed.json && oembed.xml) {
-          uris.push(oembed.xml);
-        }
-        */
-
-        //const requestOptions = {uri: oembed && oembed[oembed.formats[0]]}
-        requestPromise({uri}).then(res => {
-          json.oembed.body = res;
-          res.status(200).json({json, body});
-        }).catch(err => {
-          json.oembed.error = err;
-          res.status(200).json({json, body});
-        });
-
-    });
+    suq(req.query.url, hanldeCallback(req, res));
   };
 
 //TODO

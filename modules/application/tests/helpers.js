@@ -45,7 +45,7 @@ exports.endRequest = (req) => {
     req.end( (err, res) => {
       if (err) {
         debug(err);
-        if(res && res.body) {          
+        if(res && res.body) {
           return reject(new Error(JSON.stringify(res.body)));
         }
         return reject(err);
@@ -53,34 +53,6 @@ exports.endRequest = (req) => {
       resolve(res);
     });
   });
-};
-
-exports.getCaptcha = (agent) => {
-  const req = agent.get('/api/auth/captcha?test=true');
-  return exports.endRequest(req);
-};
-
-exports.signIn = (agent, credentials, status = 200) => {
-  const req = agent.post('/api/login')
-    .send(credentials)
-    .expect(status);
-  return exports.endRequest(req);
-};
-
-exports.logOut = (agent) => {
-  const req = agent.post('/api/logout');
-  return exports.endRequest(req);
-};
-
-//alias for logOut method
-exports.signOut = exports.logOut;
-
-exports.signUp = (agent, user, status = 200) => {
-  const req = agent.post('/api/signup')
-    .send(user)
-    .expect(status);
-  return exports.endRequest(req);
-
 };
 
 exports.matchRegExp = (subString, result) => {

@@ -31,7 +31,7 @@ https://linkpreview.dev/
 2. Install Dependencies
   ````
   npm i
-  ````
+  ```` 
 
 3. Copy `.env.example` ---> `.env` if you want custom env vars
 
@@ -64,3 +64,10 @@ https://linkpreview.dev/
   ````
   npm run start
   ````
+  
+    
+  # Libraries Used for Scraping
+   
+   - [cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
+   
+   - [MattMcFarland/SUq](https://github.com/MattMcFarland/SUq)

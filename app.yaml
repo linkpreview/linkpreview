@@ -2,3 +2,4 @@ runtime: nodejs10
 
 env_variables:
   APP_ENGINE: "ROFS" # read-only filesystem
+  SITE: "https://linkpreview.dev"

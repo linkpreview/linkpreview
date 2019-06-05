@@ -113,7 +113,7 @@ export default function render(req, res, next, assetManifest, chunkManifest) {
   const metaProperties = {
     title:'Link Preview',
     desc:'Open Graph, Twitter Card, Oembed preview',
-    img:require('images/doggo.jpg'),
+    img: req.clientConfig.site + assetManifest['images/doggo.jpg'],
     imgAlt: "A dog with different eye color",
     url: 'https://linkpreview.dev',
     author: 'Namchey',

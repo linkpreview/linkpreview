@@ -1,6 +1,7 @@
 ![Link Preview Logo](https://raw.githubusercontent.com/namchey/linkpreview/master/app/images/blue-logo.png)
 
 # Link Preview
+[![npm version](https://badge.fury.io/js/%40namchey%2Flinkpreview.svg)](https://badge.fury.io/js/%40namchey%2Flinkpreview)
 [![Build Status](https://travis-ci.org/namchey/linkpreview.svg?branch=master)](https://travis-ci.org/namchey/linkpreview)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f8aae8449e8d187af9aa/maintainability)](https://codeclimate.com/github/namchey/linkpreview/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f8aae8449e8d187af9aa/test_coverage)](https://codeclimate.com/github/namchey/linkpreview/test_coverage)
@@ -31,7 +32,7 @@ https://linkpreview.dev/
 2. Install Dependencies
   ````
   npm i
-  ```` 
+  ````
 
 3. Copy `.env.example` ---> `.env` if you want custom env vars
 
@@ -64,10 +65,10 @@ https://linkpreview.dev/
   ````
   npm run start
   ````
-  
-    
+
+
   # Libraries Used for Scraping
-   
+
    - [cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
-   
+
    - [MattMcFarland/SUq](https://github.com/MattMcFarland/SUq)

@@ -9,8 +9,8 @@ const should = require('should'),
   helpers = require(path.resolve('modules/application/tests/helpers')),
   config = require(path.resolve('./server/config'));
 
-const SCRAPE_URL = 'https://namchey.com/itineraries/tilicho';
-const TITLE = 'Tilicho Lake (Off-Season) - Dipesh Acharya';
+const SCRAPE_URL = 'https://github.com/namchey';
+const TITLE = 'Namchey';
 
 
 describe('Scrape API v1 Tests', function () {
@@ -38,7 +38,7 @@ describe('Scrape API v1 Tests', function () {
       const result = res.body.json;
       result.twittercard['twitter:title'].should.equal(TITLE);
       result.opengraph['og:title'].should.equal(TITLE);
-      return result.oembed.formats.should.match(['xml', 'json']);
+      return result.oembed.formats.should.match([]);
     });
 
   });

@@ -24,6 +24,14 @@ https://linkpreview.dev/
 
 # Installation
 
+    ````
+    npm i -g linkpreview
+    linkpreview
+    //starts a server in localhost:8080 
+    ````
+
+# Development
+
 1. Clone this repo
   ````
   git clone git@github.com:namchey/linkpreview.git

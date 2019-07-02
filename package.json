@@ -4,11 +4,29 @@
   "description": "Open Graph, Twitter Card, Oembed Scrapper. Shows visual cards that mimics link previews in social media like facebook, twitter, vk and other sites that support link preview.",
   "repository": "https://github.com/namchey/linkpreview",
   "main": "server/index.js",
+  "bin": {
+    "linkpreview": "./bin/linkpreview"
+  },
+  "keywords": [
+    "opengraph",
+    "twittercard",
+    "oembed",
+    "scrape",
+    "npm",
+    "visual",
+    "link",
+    "unfurl",
+    "react",
+    "redux",
+    "cheeriojs",
+    "scraping"
+  ],
   "scripts": {
     "pm2:start": "pm2 startOrRestart ecosystem.json --env production --name $APP_NAME -l app_logs.log",
     "pm2:restart": "pm2 stop $APP_NAME && pm2 delete $APP_NAME && npm run pm2:start",
     "pm2": "if pm2 list | grep $APP_NAME; then npm run pm2:restart; else npm run pm2:start; fi",
     "lint": "eslint app",
+    "postinstall": "npm run build",
     "lint:fix": "eslint --ext .js,.jsx app server --fix",
     "clean": "./node_modules/rimraf/bin.js public/assets && ./node_modules/rimraf/bin.js public/server-assets",
     "start": "NODE_ENV=production node server/index.js",
@@ -32,7 +50,7 @@
   "private": false,
   "author": {
     "name": "Namchey",
-    "url": "https://namchey.com",
+    "url": "https://github.com/namchey",
     "email": "contact@namchey.com"
   },
   "contributors": [

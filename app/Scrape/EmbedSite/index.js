@@ -9,7 +9,7 @@ import ErrorBoundary from 'components/ErrorBoundary';
 
 import styles from './styles.css';
 import Message from 'components/Message';
-import doggo from 'images/doggo.jpg';
+import doggo from 'images/doggo-new.jpg';
 import favicon from '../../../static/favicon.ico';
 
 const cx = classNames.bind(styles);

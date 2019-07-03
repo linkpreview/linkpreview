@@ -25,9 +25,9 @@ https://linkpreview.dev/
 # Installation
 
     ````
-    npm i -g linkpreview
+    npm i -g @namchey/linkpreview
     linkpreview
-    //starts a server in localhost:8080 
+    //starts a server in localhost:8080
     ````
 
 # Development

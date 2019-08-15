@@ -49,6 +49,7 @@ Promise.resolve({}).then(() => {
 //for catching unhandled promise rejection
 process.on('unhandledRejection', (reason, p) => {
 	logger.error('Unhandled Rejection at:', p, 'reason:', reason);
+	process.exit(1);
 });
 
 /**

@@ -15,6 +15,7 @@ import axios from 'axios';
 import { commonMeta } from 'head/common';
 import { postBrowserError } from 'actions/app';
 import querystring from 'querystring';
+import { initialPaint } from 'views/helpers';
 //include commonly used functions in prototype
 require('utils/extend_functions');
 
@@ -63,13 +64,13 @@ export function postRenderError(error, url) {
 }
 
 function renderContent({res, componentHTML, initialState, headconfig, chunkManifest, styles, scripts, metaProperties, status}) {
-  const output = renderFullPage(componentHTML, initialState, {
+  const output = renderFullPage({componentHTML, initialState, head: {
     title: headconfig.title,
     meta: headconfig.meta,
     link: headconfig.link,
-    scripts: chunkManifest
-  }, styles, scripts, metaProperties);
-  return res.status(status ? status : 200).send(output);
+    chunkManifest: chunkManifest
+  }, styles, scripts, metaProperties});
+  return res.status(status ? status : 200).end(output);
 }
 
 /*
@@ -144,6 +145,9 @@ export default function render(req, res, next, assetManifest, chunkManifest) {
   const headconfig = headconfigFactory(assetManifest);
   const initialState = store.getState();
   const currentUrl = req.url || '/';
+
+  //initial paint
+  initialPaint({res, headconfig, initialState, chunkManifest, styles, scripts, metaProperties});
 
   match({ routes, location: currentUrl }, (error, redirectLocation, renderProps) => {
     if (error) {

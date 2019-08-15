@@ -1,6 +1,8 @@
 'use strict';
 import {codeLoading, codeLoaded, codeLoadError} from 'actions/app';
 import { routeErrorHandler, routeModuleHandler } from 'routes/index';
+import App from 'Scrape/App';
+import Index from 'Scrape/Index';
 import { polyfill } from 'es6-promise';
 import NotFound from 'Scrape/NotFound';
 polyfill();
@@ -19,7 +21,7 @@ export default (store, options) => {
     return {
         path: SCRAPE_BASE_ROUTE,
         name: 'scrape-home',
-        getComponent: getComponentHandler({store, options, modulePath: 'App'}),
+        component: App,
         getChildRoutes(location, cb) {
             const docs = import(/* webpackChunkName: "docs-routes" */'./docs');
             const otherRoutes = import(/* webpackChunkName: "other-routes" */'./others');
@@ -28,11 +30,6 @@ export default (store, options) => {
             .then(routeModuleHandler({store, cb, isMultiple: true, options}))
             .catch(routeErrorHandler({store, cb, options: {orginated: 'child routes', ...options}}));
         },
-        getIndexRoute(location, cb) {
-          store.dispatch(codeLoading());
-          import(/* webpackChunkName: 'Scrape-Index' */'Scrape/Index')
-          .then(routeModuleHandler({store, cb, isIndex: true, options}))
-          .catch(routeErrorHandler({store, cb, options}));
-        }
+        indexRoute: {component: Index}
     };
 }

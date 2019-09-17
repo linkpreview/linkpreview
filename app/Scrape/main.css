@@ -9,7 +9,7 @@
   .main-container {
     min-height: 300px;
     /*totalheigh - nav height - spacer height */
-    min-height: calc(100vh - 350px);
+    min-height: calc(100vh - 270px);
   }
 }
 

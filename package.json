@@ -1,6 +1,6 @@
 {
   "name": "@namchey/linkpreview",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Open Graph, Twitter Card, Oembed Scrapper. Shows visual cards that mimics link previews in social media like facebook, twitter, vk and other sites that support link preview.",
   "repository": "https://github.com/namchey/linkpreview",
   "main": "server/index.js",

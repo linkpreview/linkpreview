@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { CustomLink as Link } from 'components/Link';
-import linkPreviewLogo from 'images/blue-logo.png'
+import linkPreviewLogo from 'images/linkpreview-logo.png'
 import classNames from 'classnames/bind';
 import { SCRAPE_BASE_ROUTE } from 'Scrape/routes';
 import styles from './styles.css';
@@ -47,7 +47,7 @@ class Navigation extends Component {
                         </div>
                         <div className={cx('nav-items')}>
                           <Link to={`/docs`} className={cx('nav-item')}>Docs</Link>
-                          <Link to={`https://github.com/namchey/linkpreview`}  target="_blank" className={cx('nav-item')}>GitHub</Link>                        
+                          <Link to={`https://github.com/namchey/linkpreview`}  target="_blank" className={cx('nav-item')}>GitHub</Link>
                         </div>
                 </div>
             </nav>

@@ -10,7 +10,7 @@ cache:
 
 before_install:
   #penthouse dependency
-  - apt-get install libnss3
+  - sudo apt-get install libnss3
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
@@ -26,7 +26,7 @@ before_deploy:
   - npm run start &
   - node postbuild-scripts/critical-css.js
 
-sudo: false
+sudo: true
 
 deploy:
   provider: npm

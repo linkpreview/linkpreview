@@ -1,4 +1,4 @@
-![Link Preview Logo](https://raw.githubusercontent.com/namchey/linkpreview/master/app/images/blue-logo.png)
+![Link Preview Logo](https://raw.githubusercontent.com/namchey/linkpreview/master/app/images/linkpreview-logo.png)
 
 # Link Preview
 [![npm version](https://badge.fury.io/js/%40namchey%2Flinkpreview.svg)](https://badge.fury.io/js/%40namchey%2Flinkpreview)

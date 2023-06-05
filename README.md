@@ -31,7 +31,7 @@ Open Graph, Twitter Card, Oembed preview. Shows visual cards that mimics link pr
 
 1. Clone this repo
   ````
-  git clone git@github.com:namchey/linkpreview.git
+  git clone git@github.com:linkpreview/linkpreview.git
   ````
 
 2. Install Dependencies

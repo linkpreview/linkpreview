@@ -8,9 +8,6 @@
 
 Open Graph, Twitter Card, Oembed preview. Shows visual cards that mimics link previews in social media like facebook, twitter, vk, viber and other sites that support link preview.
 
-
-https://linkpreview.dev/
-
 # Motivation
  There are already tools from facebook (https://developers.facebook.com/tools/debug/) and twitter(https://cards-dev.twitter.com/validator) that does the work of debugging the link preview. But we also wanted Oembed standard testing and various other debugging. We wanted a tool for our development environment that supports all kind of link preview standards. So Link Preview was made to solve these problems.It is an all in one debugger. It shows visual link previews for OpenGraph, Twitter Card and Oembed protocol. With this tool you can get somewhat similar link preview in sites like facebook, twitter, medium, etc.
 

@@ -1,3 +1,5 @@
+# Notice !! Not maintained any more.
+
 ![Link Preview Logo](https://raw.githubusercontent.com/namchey/linkpreview/master/app/images/linkpreview-logo.png)
 
 # Link Preview
